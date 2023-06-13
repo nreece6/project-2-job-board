@@ -1,5 +1,5 @@
 const User = require('./User')
-const JobPosting = require('./JobPosting')
+const JobPosting = require('./Job-Posting')
 const Favorites = require('./Favorites')
 
 User.hasMany(JobPosting, {
