@@ -31,12 +31,13 @@ router.get('/', async (req, res) => {
 
 
  router.post('/', async (req, res) => {
-    const { job_name, job_description, job_location, user_id } = req.body;
+    const { job_name, job_description, job_location, user_id, company_name } = req.body;
     try{
         const job = await JobPosting.create({
             job_name:job_name,
             job_description:job_description,
             job_location:job_location,
+            Company_name:company_name,
             user_id:user_id
         })
         res.status(200).json(job)
