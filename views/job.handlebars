@@ -1,0 +1,12 @@
+<div class="">
+    {{#each jobs as |job|}}
+    <div>
+    <div>
+        <h2>{{job.job_name}}</h2>
+        <p>{{job.Company_name}}</p>
+    </div>
+        <p>{{job.job_description}}</p>
+        <p>Job is {{job.remote_status}}</p>
+    </div>
+    {{/each}}
+</div>
