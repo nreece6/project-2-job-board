@@ -16,22 +16,31 @@ JobPosting.init(
           },
           job_name:{
             type:DataTypes.STRING,
-            allowNull:false
+            allowNull:true
 
           },
           job_description:{
             type:DataTypes.STRING,
-            allowNull:false
+            allowNull:true
 
           },
           job_location:{
             type:DataTypes.STRING,
-            allowNull:false
+            allowNull:true
 
           },
           Company_name:{
             type:DataTypes.STRING,
-            allowNull:false
+            allowNull:true
+
+          },
+          salary:{
+            type:DataTypes.DECIMAL,
+            allowNull:true
+
+          },
+          schedule:{
+            type:DataTypes.STRING,
 
           },
           user_id:{
