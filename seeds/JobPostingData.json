@@ -4,5 +4,17 @@
     "job_description": "The Delivery Driver position requires bending, standing and walking the entire workday. Must have reliable transportation and the ability to use your own vehicle during work hours as well as valid insurance and license.",
     "job_location": "Maple Grove, MN 55311"
     
+},
+{
+    "job_name": "Shift Manager",
+    "Company_name":"Arby's",
+    "job_description": "You will help support the Genral Manger and Assistant Manger, ensuring that every shift operates smoothly",
+    "job_location": "Stain Paul, MN 55119"
+},
+{
+    "job_name": "Warehouse Operations",
+    "Company_name":"Traget",
+    "job_description": "Pack, load, and ship items to stores and guests. Ensure accurate processing of merchandise to our stores and guests",
+    "job_location": "Minneapolis, MN 55413"
 }
 ]
