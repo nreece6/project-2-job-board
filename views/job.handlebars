@@ -1,12 +1,10 @@
-<div class="">
-    {{#each jobs as |job|}}
-    <div>
-    <div>
-        <h2>{{job.job_name}}</h2>
-        <p>{{job.Company_name}}</p>
-    </div>
-        <p>{{job.job_description}}</p>
-        <p>Job is {{job.remote_status}}</p>
-    </div>
-    {{/each}}
+ <div>
+        <h2>{{job_name}}</h2>
+        <p>{{Company_name}}</p>
+        <button type="button" id="favorite-button">Favorite</button>
+            </div>
+        <p>{{job_description}}</p>
+        <p>Job is {{remote_status}}</p>
+        <a href="/application/{{id}}">Click Here to Apply</a>
 </div>
+   
