@@ -10,7 +10,7 @@ router.post('/', async (req, res) => {
         user_id: user_id,
         job_id: job_id,
       });
-      res.status(200).json(favourite);
+      res.status(200).json({ favorite_id: favourite.id});
     } catch (err) {
       res.status(500).json({ message: err });
     }
