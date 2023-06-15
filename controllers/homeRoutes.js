@@ -72,7 +72,11 @@ router.get('/job/:id', async (req, res) => {
     } catch (err) {
       res.status(500).json(err);
     }
+  }); 
+  router.get('/login', (req, res) => {
+    res.render('login'); // Render the login view
   });
+  
 
 // // Use withAuth middleware to prevent access to route
 // router.get('/profile', withAuth, async (req, res) => {
