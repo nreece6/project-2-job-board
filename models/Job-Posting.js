@@ -43,6 +43,10 @@ JobPosting.init(
             type:DataTypes.STRING,
 
           },
+          remote_status:{
+            type:DataTypes.STRING,
+            
+          },
           user_id:{
             type:DataTypes.INTEGER,
             allowNull:false,
