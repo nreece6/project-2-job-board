@@ -1,37 +1,60 @@
-// Assuming you have a button element with the class "favorite-button" for each job item
+const favoriteButtons = document.querySelectorAll("#favorite-button");
 
-// Step 1: Attach event listener to buttons
-const favoriteButtons = document.querySelectorAll('.favorite-button');
-favoriteButtons.forEach(button => {
-  button.addEventListener('click', handleFavoriteClick);
+favoriteButtons.forEach((button) => {
+  button.addEventListener("click", handleFavoriteClick);
 });
-
-// Step 2: Handle favorite button click
+let favoriteId; // Define the favoriteId variable outside the if statement
 function handleFavoriteClick(event) {
   const button = event.target;
-  const jobId = button.dataset.jobId; // Assuming you have the job ID stored as a data attribute
+  const parts = window.location.href.split("/");
+  const jobId = parts[parts.length - 1];
+  console.log(jobId);
 
-  // Step 3: Send fetch request to API
-  const isFavorite = button.classList.contains('active'); // Check if the button is currently marked as a favorite
+//Send fetch request to API
+  const isFavorite = button.classList.contains("active"); // Check if the button is currently marked as a favorite
+ 
 
-  const url = isFavorite ? '/api/remove-favorite' : '/api/add-favorite';
-  const method = isFavorite ? 'DELETE' : 'POST';
-
-  fetch(url, {
-    method: method,
-    body: JSON.stringify({ jobId: jobId }), // Send the job ID to the API
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  })
-  .then(response => response.json())
-  .then(data => {
-    // Step 4: Update button appearance based on API response
-    button.classList.toggle('active'); // Toggle the active class to reflect the updated favorite state
-    // Additional logic if needed
-  })
-  .catch(error => {
-    // Handle error
-    console.error('Error:', error);
-  });
+  if (!isFavorite) {
+   
+    button.style.backgroundColor = "red";
+    fetch(`http://localhost:3001/api/favorites`, {
+      method: "POST",
+      body: JSON.stringify({ job_id: jobId, user_id: "2" }), // Send the job ID to the API'
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        favoriteId = data.favorite_id; // Set the favoriteId variable
+        console.log(data)
+        
+        button.classList.toggle("active"); // Toggle the active class to reflect the updated favorite state
+        
+      })
+      .catch((error) => {
+       
+        // console.error("Error:", error);
+      });
+  } else {
+    fetch(`http://localhost:3001/api/favorites/${favoriteId}`, {
+      method: "DELETE",
+      body: JSON.stringify({ job_id: jobId, user_id: "2" }), // Send the job ID to the API'
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+       
+        button.classList.toggle("active"); // Toggle the active class to reflect the updated favorite state
+        
+      })
+      .catch((error) => {
+        
+        // console.error("Error:", error);
+      });
+    
+    button.style.backgroundColor = "gray";
+  }
 }
