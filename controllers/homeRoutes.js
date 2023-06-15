@@ -51,6 +51,29 @@ router.get('/job/:id', async (req, res) => {
     }
   });
 
+
+  router.get('/application/:id', async (req, res) => {
+    try {
+      const jobData = await JobPosting.findByPk(req.params.id, {
+        include: [
+          {
+            model: User,
+            attributes: ['name'],
+          },
+        ],
+      });
+  
+      const job = jobData.get({ plain: true });
+  
+      res.render('application-form', {
+        ...job,
+        logged_in: req.session.logged_in
+      });
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
+
 // // Use withAuth middleware to prevent access to route
 // router.get('/profile', withAuth, async (req, res) => {
 //   try {
