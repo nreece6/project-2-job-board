@@ -8,4 +8,5 @@ router.use('/users',userRoutes);
 router.use('/jobpostings', jobPostingRoutes);
 router.use('/favorites',favoritesRoutes);
 
+
 module.exports = router;
