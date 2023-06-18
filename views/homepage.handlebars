@@ -1,18 +1,32 @@
 <!-- Loop over each object in the projects array -->
 {{#each jobs as |job| }}
-<div class="row mb-4 project">
-    <a href="/job/{{job.id}}">
+<div class="row mb-4 p-4 project border rounded-4 shadow-sm">
+    <a class="text-decoration-none" href="/job/{{job.id}}">
   <div class="col-md-5">
     <h2>     
       {{job.job_name}}
     </h2>
     <p>Job Listed by {{job.user.name}}</p>
   </div>
+  
+  </a>
   <div class="col-md-7">
     <p>
       {{job.job_description}}
     </p>
   </div>
-  </a>
 </div>
 {{/each}}
+<nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+    <li class="page-item disabled">
+      <a class="page-link">Previous</a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#">Next</a>
+    </li>
+  </ul>
+</nav>

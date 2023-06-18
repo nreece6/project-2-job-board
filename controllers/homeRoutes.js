@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Favorites, User, JobPosting } = require('../models');
+
 const withAuth = require('../utils/auth');
 
 
@@ -22,29 +23,41 @@ router.get('/', async (req, res) => {
     //Pass serialized data and session flag into template
     res.render('homepage', { 
       jobs,
-      logged_in: req.session.logged_in 
+      logged_in: req.session.logged_in,
+      user_id:req.session.user_id
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-router.get('/job/:id', async (req, res) => {
+router.get('/job/:id', withAuth,async (req, res) => {
     try {
-      const jobData = await JobPosting.findByPk(req.params.id, {
+      const userId = req.session.user_id;
+      const jobId = req.params.id;
+      const isJobFavorited = await Favorites.findOne({
+        where:{
+          user_id:userId,
+          job_id:jobId
+        }
+      })
+      const jobData = await JobPosting.findByPk(jobId, {
         include: [
           {
             model: User,
             attributes: ['name'],
           },
+         
         ],
       });
-  
+      
       const job = jobData.get({ plain: true });
-  
+     
       res.render('job', {
         ...job,
-        logged_in: req.session.logged_in
+        logged_in: req.session.logged_in,
+        user_id:userId,
+        isJobFavorited:!!isJobFavorited
       });
     } catch (err) {
       res.status(500).json(err);

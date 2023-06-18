@@ -2,7 +2,6 @@ const router = require('express').Router();
 const { Favorites, User, JobPosting } = require('../../models');
 // const withAuth = require('../utils/auth');
 
-//login functionality to be attached in here to limit access to routes
 router.get('/', async (req, res) => {
    try{
     const user = await User.findAll({
@@ -27,13 +26,13 @@ router.get('/:id', async (req, res) => {
  })
 
 router.post('/', async (req, res) => {
-    const { name, email, password, isAuth } = req.body;
+    const { username, email, password, userType } = req.body;
     try{
         const user = await User.create({
-             name:name,
+             name:username,
              email:email,
              password:password,
-             isAuth:isAuth
+             isAuth:userType
         })
         res.status(200).json(user)
        }catch(err){
