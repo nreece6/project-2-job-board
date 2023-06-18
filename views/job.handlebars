@@ -1,10 +1,36 @@
- <div>
-        <h2>{{job_name}}</h2>
-        <p>{{Company_name}}</p>
-        <button type="button" id="favorite-button">Favorite</button>
-            </div>
-        <p>{{job_description}}</p>
-        <p>Job is {{remote_status}}</p>
-        <a href="/application/{{id}}">Click Here to Apply</a>
+<div class="my-4 border p-4 rounded-4 shadow-sm">
+  <h2>{{job_name}}</h2>
+  <p>{{Company_name}}</p>
+
+  <p class="d-none">userid: {{user_id}}</p>
+   <div id="alert-unfavorited" class="alert alert-danger col-md-3 mx-0 d-none" role="alert">
+    Removed from Favorites!  <i class="bi bi-check2-circle"></i>
+  </div>
+  <div id="alert-favorited" class="alert alert-success col-md-2 mx-0 d-none" role="alert">
+    Added to Favorites!  <i class="bi bi-check2-circle"></i>
+  </div>
+  {{#if isJobFavorited}}
+
+  <button type="button" id="favorite-button" class="btn border btn-danger" data-user-id="{{user_id}}"><i
+      class="bi bi-heart"></i>
+    Favorite</button>
+
+  {{else}}
+  <button type="button" id="favorite-button" class="btn btn-outline-danger " data-user-id="{{user_id}}"><i
+      class="bi bi-heart"></i>
+    Favorite</button>
+
+  {{/if}}
 </div>
-   
+
+<br>
+<div>
+  <h4>Job Description</h4>
+  <p>{{job_description}}</p>
+  <p>Job is {{remote_status}}</p>
+  <a href="/application/{{id}}">Click Here to Apply</a>
+</div>
+
+</div>
+
+<script src="/js/favorite.js"></script>

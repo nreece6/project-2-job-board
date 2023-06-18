@@ -1,11 +1,15 @@
 const router = require('express').Router();
 const { Favorites, User, JobPosting } = require('../../models');
-// const withAuth = require('../utils/auth');
+
+const withAuth = require('../../utils/auth');
+
+
 
 router.get('/', async (req, res) => {
     try{
      const jobs = await JobPosting.findAll({
          include:[{model:User}] // including its associated favourite and jobposting for a user
+         
      })
      res.status(200).json(jobs)
     }catch(err){
@@ -17,6 +21,10 @@ router.get('/', async (req, res) => {
     try{
      const job = await JobPosting.findOne({
          include:[{model:User}] // including its associated favourite and jobposting for a user
+         ,where:{
+            id:req.params.id
+         }
+
      })
      if(!job){
         res.status(404).json({message:'job not found'})
