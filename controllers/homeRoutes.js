@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const { Favorites, User, JobPosting } = require('../models');
 const withAuth = require('../utils/auth');
+const db = require('../models')
+const { Op } = require('sequelize')
 
 
 
@@ -107,6 +109,28 @@ router.get('/login', (req, res) => {
 
   res.render('login');
 });
+
+router.get('/search', async (req, res) => {
+  const searchTerm = req.query.term;
+
+  try {
+    const jobPostings = await JobPosting.findAll({
+      where: {
+        job_name: {
+          [Op.like]: `%${searchTerm}%`
+        }
+      },
+      attributes: ["id", "job_name"] // Return only the ID and job_name fields
+    });
+    const jobNames = jobPostings.map((jobPosting) => jobPosting.job_name);
+    res.json(jobNames);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "An error occurred while fetching job postings." });
+  }
+});
+
+
 
 module.exports = router;
 
