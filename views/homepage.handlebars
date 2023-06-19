@@ -1,5 +1,5 @@
 <!-- Loop over each object in the projects array -->
-{{#each jobs as |job| }}
+{{#each paginatedJobs as |job| }}
 <div class="row mb-4 p-4 project border rounded-4 shadow-sm">
     <a class="text-decoration-none" href="/job/{{job.id}}">
   <div class="col-md-5">
@@ -10,23 +10,20 @@
   </div>
   
   </a>
-  <div class="col-md-7">
+  <div class="col-md-12">
     <p>
       {{job.job_description}}
     </p>
   </div>
 </div>
 {{/each}}
-<nav aria-label="Page navigation example">
-  <ul class="pagination justify-content-center">
-    <li class="page-item disabled">
-      <a class="page-link">Previous</a>
-    </li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item">
-      <a class="page-link" href="#">Next</a>
-    </li>
+
+{{!-- pagination --}}
+<nav  aria-label="Page navigation example" id="pagination-nav" data-totalPages={{totalPages}} data-currentPage={{currentPage}}>
+   <ul class="pagination justify-content-center ">
+      {{!-- dyncamically pagenations are generated from /js.home.js --}}
   </ul>
 </nav>
+{{!-- <p>total pages: {{totalPages}} current page:{{currentPage}} </p> --}}
+
+<script src="/js/home.js"></script>

@@ -27,13 +27,13 @@ async function handleFavorite(event) {
     }
     
   }
-
+//to get the job id from the url .../job/id
 const url = window.location.href;
 const parts = url.split('/')
 const jobId = parts[parts.length - 1]
-console.log()
+
 const userId = favoriteBtn.getAttribute("data-user-id");
-console.log(userId)
+
 
 const favoriteIdsByJob = {};  //keeps track of favorite_id
 let favoriteId;

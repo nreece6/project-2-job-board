@@ -25,10 +25,19 @@
 
 <br>
 <div>
-  <h4>Job Description</h4>
-  <p>{{job_description}}</p>
-  <p>Job is {{remote_status}}</p>
-  <a href="/application/{{id}}">Click Here to Apply</a>
+  <h3>Job Description</h3>
+  <p><em>{{job_description}}</em></p>
+  <br>
+  <h3>Job site</h3>
+  <p>{{remote_status}}</p>  
+  <br>
+  <h3>Salary</h3>
+  <p>${{salary}}</p>
+  <br>
+  <h3>Location</h3>
+  <p>{{job_location}}</p>
+  <br>
+  <button type="button" class="btn btn-primary py-2 px-4"><a class="text-decoration-none text-white" href="/application/{{id}}">Apply now</a></button>
 </div>
 
 </div>
