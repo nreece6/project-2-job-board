@@ -28,8 +28,12 @@
   </div>
   <form>
   <div class="form-group">
-    <label for="exampleFormControlFile1">Upload resuame</label>
-    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+    <label for="exampleFormControlFile1">Upload resume</label>
+    {{!-- <input type="file" class="form-control-file" id="exampleFormControlFile1"> --}}
+      <input type="file" name="imgfile" accept="" id="imgfile">
+    <button type="button" class="btn btn-primary" id="submitBtn">Primary</button>
+     <div class="" id="images"></div>
   </div>
 </form>
 </form>
+<script type="module" src="/js/application-form.js"></script>
