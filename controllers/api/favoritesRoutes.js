@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Favorites, User, JobPosting } = require('../../models');
 // const withAuth = require('../utils/auth');
 
-// Create a favourite
+  // Create a favourite
 router.post('/', async (req, res) => {
     try {
       const { user_id, job_id } = req.body;
@@ -10,13 +10,13 @@ router.post('/', async (req, res) => {
         user_id: user_id,
         job_id: job_id,
       });
-      res.status(200).json({ favorite_id: favourite.id});
+      res.status(200).json({ favorite_id: favourite.id, user_id:favourite.user_id,job_id:favourite.job_id });
     } catch (err) {
       res.status(500).json({ message: err });
     }
   });
   
-  // Read all favourites
+    // Read all favourites
   router.get('/', async (req, res) => {
     try {
       const favourites = await Favorites.findAll();
@@ -29,7 +29,7 @@ router.post('/', async (req, res) => {
     }
   });
   
-  // Read a single favourite
+    // Read a single favourite
   router.get('/:id', async (req, res) => {
     try {
       const { id } = req.params;
@@ -43,6 +43,8 @@ router.post('/', async (req, res) => {
       res.status(500).json({ message: err });
     }
   });
+
+
   
   // we probably dont need update functionality for favourites
   
@@ -82,4 +84,23 @@ router.post('/', async (req, res) => {
     }
   });
   
+  router.delete('/', async (req, res) => {
+    try {
+      const { user_id,job_id } = req.body;
+      const favourite = await Favorites.findOne({
+        where:{
+          user_id:user_id,
+          job_id:job_id
+        }
+      });
+      if (!favourite) {
+        res.status(404).json({ message: 'Favourite not found' });
+      } else {
+        await favourite.destroy();
+        res.status(200).json({ message: 'Favourite deleted' });
+      }
+    } catch (err) {
+      res.status(500).json({ message: err });
+    }
+  });
   module.exports = router

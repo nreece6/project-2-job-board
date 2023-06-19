@@ -20,7 +20,7 @@ JobPosting.init(
 
           },
           job_description:{
-            type:DataTypes.STRING,
+            type:DataTypes.TEXT,
             allowNull:true
 
           },
