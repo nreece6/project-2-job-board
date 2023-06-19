@@ -16,31 +16,7 @@ const loginFormHandler = async (event) => {
     } else {
       alert("Failed to log in.");
     }
-<<<<<<< HEAD
-  };
-  
-  const signupFormHandler = async (event) => {
-    event.preventDefault();
-  
-    const username = document.querySelector("#username-signup").value.trim();
-    const email = document.querySelector("#email-signup").value.trim();
-    const password = document.querySelector("#password-signup").value.trim();
-    const isAuth = document.querySelector("#user-Type").value.trim()
-    if (username && email && password && userType) {
-      const response = await fetch("/api/users", {
-        method: "POST",
-        body: JSON.stringify({ username, email, password, isAuth }),
-        headers: { "Content-Type": "application/json" },
-      });
-  
-      if (response.ok) {
-        document.location.replace("/");
-      } else {
-        alert("Failed to sign up.");
-      }
-=======
-  }
-};
+  }}
 
 const signupFormHandler = async (event) => {
   event.preventDefault();
@@ -67,7 +43,7 @@ const signupFormHandler = async (event) => {
      
     } else {
       alert("Failed to sign up.");
->>>>>>> f262d321d4b8836c5ba43cf2dca1efbfd3d55f04
+
     }
   }
 };
