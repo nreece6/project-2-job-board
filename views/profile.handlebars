@@ -19,7 +19,7 @@
     </div>
     {{/each}}
     </div>
-    {{/if}}
+    
 
 <div class="row mt-4">
   <div class="col-md-6">
@@ -46,13 +46,15 @@
   </div>
   </div>
   {{/if}}
-  {{#unless isAuth}}
+  {{#else isAuth}}
   
     {{#each favorites as |favorite|}}
   <div>
     <h3>{{favorite.name}}</h3>
   </div>
-  {{/unless}}
+  {{/each}}
+  {{/else}}
+ {{/if}}
 
 
 <script src="./js/profile.js"></script>
