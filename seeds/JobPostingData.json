@@ -1,20 +1,218 @@
-[{
-    "job_name": "Delivery Driver",
-    "Company_name":"Jimmy Johns",
-    "job_description": "The Delivery Driver position requires bending, standing and walking the entire workday. Must have reliable transportation and the ability to use your own vehicle during work hours as well as valid insurance and license.",
-    "job_location": "Maple Grove, MN 55311"
-    
-},
-{
-    "job_name": "Shift Manager",
-    "Company_name":"Arby's",
-    "job_description": "You will help support the Genral Manger and Assistant Manger, ensuring that every shift operates smoothly",
-    "job_location": "Stain Paul, MN 55119"
-},
-{
-    "job_name": "Warehouse Operations",
-    "Company_name":"Target",
-    "job_description": "Pack, load, and ship items to stores and guests. Ensure accurate processing of merchandise to our stores and guests",
-    "job_location": "Minneapolis, MN 55413"
-}
+[
+  {
+    "job_name": "Software Engineer",
+    "Company_name": "Google",
+    "job_description": "As a Software Engineer at Google, you will collaborate with a team of talented engineers to design and develop innovative software solutions. Responsibilities include coding, testing, debugging, and maintaining software applications. You will work on projects that impact millions of users and help shape the future of technology.",
+    "job_location": "Mountain View, CA",
+    "salary": 130000,
+    "remote_status": "Remote"
+  },
+  {
+    "job_name": "Graphic Designer",
+    "Company_name": "Adobe",
+    "job_description": "Join Adobe's creative team as a Graphic Designer! In this role, you will conceptualize and design visual elements for digital and print media. From creating stunning illustrations to designing captivating user interfaces, you will contribute to the development of Adobe's industry-leading creative software and help shape the visual identity of our brand.",
+    "job_location": "San Jose, CA",
+    "salary": 90000,
+    "remote_status": "Not remote"
+  },
+  {
+    "job_name": "Sales Representative",
+    "Company_name": "Microsoft",
+    "job_description": "As a Sales Representative at Microsoft, you will be responsible for promoting and selling our products and services to businesses and enterprise clients. Your primary focus will be on building and maintaining strong relationships, understanding customer needs, and providing tailored solutions that drive business growth. Join our dynamic sales team and play a key role in shaping the future of technology.",
+    "job_location": "Redmond, WA",
+    "salary": 80000,
+    "remote_status": "Remote"
+  },
+  {
+    "job_name": "Marketing Manager",
+    "Company_name": "Coca-Cola",
+    "job_description": "Coca-Cola is seeking a talented Marketing Manager to develop and execute marketing strategies that drive brand awareness and increase market share. Responsibilities include conducting market research, analyzing consumer trends, developing campaigns, and managing cross-functional teams. Join our passionate marketing team and make a significant impact on the Coca-Cola brand.",
+    "job_location": "Atlanta, GA",
+    "salary": 95000,
+    "remote_status": "Not remote"
+  },
+  {
+    "job_name": "Data Analyst",
+    "Company_name": "Facebook",
+    "job_description": "Facebook is looking for a Data Analyst to analyze large data sets, derive actionable insights, and drive data-informed decision-making across the organization. Responsibilities include data extraction, transformation, and analysis, developing data models, and presenting findings to stakeholders. Join our data-driven culture and contribute to shaping the future of social media.",
+    "job_location": "Menlo Park, CA",
+    "salary": 85000,
+    "remote_status": "Remote"
+  },
+  {
+    "job_name": "Product Manager",
+    "Company_name": "Amazon",
+    "job_description": "Amazon is seeking a talented Product Manager to lead the development and launch of new products and features. In this role, you will define product requirements, work closely with cross-functional teams, conduct market research, and drive product innovation. Join our customer-centric organization and shape the future of e-commerce.",
+    "job_location": "Seattle, WA",
+    "salary": 110000,
+    "remote_status": "Not remote"
+  },
+  {
+    "job_name": "UX Designer",
+    "Company_name": "Apple",
+    "job_description": "Join Apple's design team as a UX Designer and help create intuitive and delightful user experiences across our range of products. In this role, you will conduct user research, create wireframes and prototypes, and collaborate with cross-functional teams to define and implement design solutions. Join us in shaping the future of technology and revolutionizing the way people interact with devices.",
+    "job_location": "Cupertino, CA",
+    "salary": 105000,
+    "remote_status": "Remote"
+  },
+  {
+    "job_name": "Financial Analyst",
+    "Company_name": "JPMorgan Chase",
+    "job_description": "JPMorgan Chase is seeking a Financial Analyst to provide financial insights and support to the organization. Responsibilities include financial modeling, forecasting, analyzing investment opportunities, and preparing financial reports. Join our dynamic finance team and play a key role in driving business growth and profitability.",
+    "job_location": "New York, NY",
+    "salary": 90000,
+    "remote_status": "Not remote"
+  },
+  {
+    "job_name": "Civil Engineer",
+    "Company_name": "Tesla",
+    "job_description": "Tesla is seeking a talented Civil Engineer to design and oversee the construction of infrastructure projects. Responsibilities include site analysis, developing engineering plans, ensuring compliance with regulations, and managing project timelines and budgets. Join our innovative engineering team and help shape the future of sustainable transportation.",
+    "job_location": "Palo Alto, CA",
+    "salary": 95000,
+    "remote_status": "Not remote"
+  },
+  {
+    "job_name": "Human Resources Manager",
+    "Company_name": "IBM",
+    "job_description": "IBM is seeking a Human Resources Manager to oversee all aspects of HR operations within the organization. Responsibilities include talent acquisition, employee relations, performance management, and HR policy development. Join our global HR team and contribute to creating a positive and inclusive work environment.",
+    "job_location": "Armonk, NY",
+    "salary": 80000,
+    "remote_status": "Remote"
+  },
+  {
+    "job_name": "Content Marketing Specialist",
+    "Company_name": "HubSpot",
+    "job_description": "Join HubSpot's marketing team as a Content Marketing Specialist and create compelling content to attract and engage our target audience. Responsibilities include content strategy, copywriting, and collaborating with cross-functional teams. Help us drive inbound marketing success!",
+    "job_location": "Cambridge, MA",
+    "salary": 90000,
+    "remote_status": "Not remote"
+  },
+  {
+    "job_name": "Machine Learning Engineer",
+    "Company_name": "Tesla",
+    "job_description": "Tesla is seeking a Machine Learning Engineer to develop and deploy cutting-edge machine learning models for autonomous vehicles. Responsibilities include data analysis, model development, and collaborating with software engineers. Join our mission to accelerate the world's transition to sustainable energy!",
+    "job_location": "Palo Alto, CA",
+    "salary": 125000,
+    "remote_status": "Not remote"
+  },
+  {
+    "job_name": "Business Analyst",
+    "Company_name": "Microsoft",
+    "job_description": "Microsoft is looking for a Business Analyst to analyze market trends, gather business requirements, and develop strategies for driving growth and improving operational efficiency. Responsibilities include data analysis, market research, and collaborating with cross-functional teams. Join our dynamic organization and make a meaningful impact on our business!",
+    "job_location": "Redmond, WA",
+    "salary": 95000,
+    "remote_status": "Remote"
+  },
+  {
+    "job_name": "Product Designer",
+    "Company_name": "Airbnb",
+    "job_description": "Join Airbnb's design team as a Product Designer and create exceptional user experiences for our global community. In this role, you will collaborate with cross-functional teams, conduct user research, and prototype design solutions. Help us create a world where anyone can belong anywhere!",
+    "job_location": "San Francisco, CA",
+    "salary": 110000,
+    "remote_status": "Not remote"
+  },
+  {
+    "job_name": "Data Scientist",
+    "Company_name": "Netflix",
+    "job_description": "Netflix is seeking a Data Scientist to analyze user behavior, develop predictive models, and optimize our content recommendation algorithms. Responsibilities include data analysis, machine learning, and collaborating with cross-functional teams. Join our data-driven culture and shape the future of entertainment!",
+    "job_location": "Los Gatos, CA",
+    "salary": 105000,
+    "remote_status": "Remote"
+  },
+  {
+    "job_name": "Software Developer",
+    "Company_name": "Facebook",
+    "job_description": "Join Facebook's engineering team as a Software Developer and build scalable and innovative software solutions. In this role, you will collaborate with cross-functional teams, write clean code, and contribute to the development of our platform. Help us connect billions of people around the world!",
+    "job_location": "Menlo Park, CA",
+    "salary": 120000,
+    "remote_status": "Not remote"
+  },
+  {
+    "job_name": "IT Project Manager",
+    "Company_name": "Oracle",
+    "job_description": "Oracle is seeking an IT Project Manager to lead and oversee the implementation of technology projects. Responsibilities include project planning, resource allocation, risk management, and stakeholder communication. Join our global team and drive successful project delivery!",
+    "job_location": "Redwood City, CA",
+    "salary": 100000,
+    "remote_status": "Remote"
+  },
+  {
+    "job_name": "Content Writer",
+    "Company_name": "BuzzFeed",
+    "job_description": "BuzzFeed is looking for a creative and talented Content Writer to produce engaging articles, quizzes, and multimedia content. In this role, you will collaborate with editorial teams, conduct research, and contribute to the development of BuzzFeed's content strategy. Join our vibrant team and create compelling content for millions of readers!",
+    "job_location": "New York, NY",
+    "salary": 80000,
+    "remote_status": "Not remote"
+  },
+  {
+    "job_name": "Cybersecurity Analyst",
+    "Company_name": "IBM",
+    "job_description": "IBM is seeking a Cybersecurity Analyst to ensure the security of our systems and networks. Responsibilities include monitoring, incident response, vulnerability assessments, and implementing security measures. Join our team and help protect our clients' valuable information!",
+    "job_location": "Armonk, NY",
+    "salary": 95000,
+    "remote_status": "Remote"
+  },
+  {
+    "job_name": "Quality Assurance Engineer",
+    "Company_name": "Microsoft",
+    "job_description": "Microsoft is looking for a Quality Assurance Engineer to ensure the quality and reliability of our software products. Responsibilities include test planning, test case development, and collaborating with development teams. Join us in delivering high-quality software to our customers!",
+    "job_location": "Redmond, WA",
+    "salary": 85000,
+    "remote_status": "Not remote"
+  },
+  {
+    "job_name": "UI Developer",
+    "Company_name": "Google",
+    "job_description": "Join Google's engineering team as a UI Developer and create seamless user interfaces for our web applications. In this role, you will collaborate with designers, implement UI designs, and optimize application performance. Help us deliver exceptional user experiences!",
+    "job_location": "Mountain View, CA",
+    "salary": 105000,
+    "remote_status": "Remote"
+  },
+  {
+    "job_name": "Supply Chain Manager",
+    "Company_name": "Amazon",
+    "job_description": "Amazon is seeking a Supply Chain Manager to optimize our global supply chain operations. Responsibilities include demand forecasting, inventory management, supplier relationship management, and process improvement. Join our fast-paced organization and help us deliver products to customers around the world!",
+    "job_location": "Seattle, WA",
+    "salary": 100000,
+    "remote_status": "Not remote"
+  },
+  {
+    "job_name": "Social Media Manager",
+    "Company_name": "Twitter",
+    "job_description": "Twitter is looking for a Social Media Manager to develop and implement social media strategies that enhance our brand presence and engage our audience. Responsibilities include content creation, community management, and analyzing social media metrics. Join our dynamic marketing team and shape the conversation on our platform!",
+    "job_location": "San Francisco, CA",
+    "salary": 90000,
+    "remote_status": "Remote"
+  },
+  {
+    "job_name": "Artificial Intelligence Researcher",
+    "Company_name": "DeepMind",
+    "job_description": "DeepMind is seeking an Artificial Intelligence Researcher to advance the field of artificial intelligence through innovative research and development. Responsibilities include conducting experiments, publishing research papers, and collaborating with a diverse team of experts. Join us in solving some of the world's most challenging AI problems!",
+    "job_location": "London, UK",
+    "salary": 120000,
+    "remote_status": "Not remote"
+  },
+  {
+    "job_name": "Mobile App Developer",
+    "Company_name": "Apple",
+    "job_description": "Join Apple's engineering team as a Mobile App Developer and create cutting-edge mobile applications for iOS devices. In this role, you will collaborate with designers, develop clean and efficient code, and contribute to the success of our App Store ecosystem. Help us redefine the mobile experience!",
+    "job_location": "Cupertino, CA",
+    "salary": 110000,
+    "remote_status": "Remote"
+  },
+  {
+    "job_name": "Data Engineer",
+    "Company_name": "Netflix",
+    "job_description": "Netflix is seeking a Data Engineer to design and implement scalable data pipelines and infrastructure. Responsibilities include data modeling, ETL development, and optimizing data processes. Join our data-driven organization and help us deliver personalized entertainment experiences!",
+    "job_location": "Los Gatos, CA",
+    "salary": 100000,
+    "remote_status": "Not remote"
+  },
+  {
+    "job_name": "Product Marketing Manager",
+    "Company_name": "Adobe",
+    "job_description": "Join Adobe's marketing team as a Product Marketing Manager and drive the go-to-market strategy for our products. In this role, you will conduct market research, develop positioning and messaging, and collaborate with cross-functional teams. Help us showcase the power of creativity!",
+    "job_location": "San Jose, CA",
+    "salary": 95000,
+    "remote_status": "Remote"
+  }
 ]

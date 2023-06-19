@@ -20,11 +20,22 @@ router.get('/', async (req, res) => {
     // Serialize data so the template can read it
     const jobs = jobsData.map((project) => project.get({ plain: true }));
 
-    //Pass serialized data and session flag into template
+      // Pagination parameters
+      const page = parseInt(req.query.page) || 1; // Current page number
+      const limit = parseInt(req.query.limit) || 5; // Number of jobs per page
+      const startIndex = (page - 1) * limit;
+      const endIndex = page * limit;
+      const totalJobs = jobs.length;  
+      // Paginated jobs for the current page
+      const paginatedJobs = jobs.slice(startIndex, endIndex);
+      
+    //Pass serialiazed and pagenated data and session flag into template
     res.render('homepage', { 
-      jobs,
+      paginatedJobs,
       logged_in: req.session.logged_in,
-      user_id:req.session.user_id
+      user_id:req.session.user_id,
+      currentPage: page,
+      totalPages: Math.ceil(totalJobs / limit), // Calculate the total number of pages
     });
   } catch (err) {
     res.status(500).json(err);
