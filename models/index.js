@@ -17,8 +17,9 @@ JobPosting.belongsTo(User, {
     foreignKey: 'user_id'
 })
 
-Favorites.belongsTo(User, {
-    foreignKey: 'user_id'
+Favorites.belongsToMany(User, {
+    through: JobPosting,
+    foreignKey: 'user_ID'
 })
 
 module.exports = { User, JobPosting, Favorites, Applicants}
