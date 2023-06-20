@@ -146,9 +146,8 @@ router.get('/search', async (req, res) => {
       },
       attributes: ["id", "job_name"] // Return only the ID and job_name fields
     });
-    const jobNames = jobPostings.map((jobPosting) => jobPosting.get({ plain: true }));
-    // Serialize data so the template can read it
-    
+   
+    const jobNames = jobPostings.map((jobPosting) => {return { label: jobPosting.job_name, value: jobPosting.id }});
     res.json(jobNames);
   } catch (error) {
     console.error(error);
