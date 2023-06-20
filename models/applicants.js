@@ -1,19 +1,37 @@
 const { Model, DataTypes } = require('sequelize')
 const sequelize = require('../config/connection')
 
-class Favorites extends Model {}
+class Applicants extends Model {}
 
-Favorites.init(
+Applicants.init(
     {
+       name:{
+        type: DataTypes.STRING
+
+       },
+       email:{
+        type:DataTypes.STRING,
+        allowNull:false,
+        unique:true,
+        validate:{
+            isEmail: true
+        }},
+        years_ex:{
+            type:DataTypes.INTEGER
+        },
+        description:{
+            type:DataTypes.INTEGER
+
+        },
+
         id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true,
         },
-        user_ID: {
+        user_id: {
             type: DataTypes.INTEGER,
-            allowNull: false,
             references: {
                 model: 'user',
                 key: 'id',
@@ -21,7 +39,6 @@ Favorites.init(
         },
         job_id: {
             type: DataTypes.INTEGER,
-            allowNull: false,
             references: {
                 model: 'jobPosting',
                 key: 'id'
@@ -33,8 +50,8 @@ Favorites.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'favorites'
+        modelName: 'applicants'
     },
 )
 
-module.exports = Favorites
+module.exports = Applicants

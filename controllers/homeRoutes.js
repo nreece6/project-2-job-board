@@ -1,7 +1,23 @@
 const router = require('express').Router();
 const { Favorites, User, JobPosting } = require('../models');
 
+const sendResume = require('../drive/quickstart/index')
 const withAuth = require('../utils/auth');
+const Multer = require("multer")
+const { Storage } = require("@google-cloud/storage");
+let projectId = "stable-argon-389922"; // Get this from Google Cloud
+let keyFilename = "mykey.json"; // Get this from Google Cloud -> Credentials -> Service Accounts
+const storage = new Storage({
+  projectId,
+  keyFilename,
+});
+const bucket = storage.bucket("jobposting-board")
+const multer = Multer({
+  storage: Multer.memoryStorage(),
+  limits: {
+    fileSize: 5 * 1024 * 1024, // No larger than 5mb, change as you need
+  },
+});
 const db = require('../models')
 const { Op } = require('sequelize')
 
@@ -50,7 +66,7 @@ router.get('/job/:id', withAuth,async (req, res) => {
       const jobId = req.params.id;
       const isJobFavorited = await Favorites.findOne({
         where:{
-          user_id:userId,
+          user_ID:userId,
           job_id:jobId
         }
       })
@@ -99,6 +115,36 @@ router.get('/job/:id', withAuth,async (req, res) => {
       res.status(500).json(err);
     }
   }); 
+
+  router.get("/application", async (req, res) => {
+    try {
+      const [files] = await bucket.getFiles();
+      res.send([files]);
+      console.log("Success");
+    } catch (error) {
+      res.send("Error:" + error);
+    }
+  });
+
+  router.post("/application", multer.single("imgfile"), (req, res) => {
+    console.log("Made it /upload");
+    try {
+      if (req.file) {
+        console.log("File found, trying to upload...");
+        const blob = bucket.file(req.file.originalname);
+        const blobStream = blob.createWriteStream();
+  
+        blobStream.on("finish", () => {
+          res.status(200).send("Success");
+          console.log("Success");
+        });
+        blobStream.end(req.file.buffer);
+      } else throw "error with img";
+    } catch (error) {
+      res.status(500).send(error);
+    }
+  });
+
   router.get('/login', (req, res) => {
     res.render('login'); // Render the login view
   });
@@ -108,6 +154,7 @@ router.get('/job/:id', withAuth,async (req, res) => {
 router.get('/profile', withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
+    const userId = req.session.user_id
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
       include: [{ model: JobPosting }, { model: Favorites}],
@@ -117,6 +164,7 @@ router.get('/profile', withAuth, async (req, res) => {
 
     res.render('profile', {
       ...user,
+      user_id:userId,
       logged_in: true
     });
   } catch (err) {

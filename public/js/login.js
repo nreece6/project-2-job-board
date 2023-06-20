@@ -17,7 +17,8 @@ const loginFormHandler = async (event) => {
     } else {
       alert("Failed to log in.");
     }
-  }}
+  }
+};
 
 const signupFormHandler = async (event) => {
   event.preventDefault();
@@ -45,7 +46,6 @@ const signupFormHandler = async (event) => {
      
     } else {
       alert("Failed to sign up.");
-
     }
   }
 };

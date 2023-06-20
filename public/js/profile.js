@@ -1,3 +1,6 @@
+const nameEl = document.getElementById('name_id')
+const userId = nameEl.getAttribute("data-user-id")
+console.log(userId)
 const newFormHandler = async (event) => {
   event.preventDefault();
 
@@ -37,6 +40,9 @@ const delButtonHandler = async (event) => {
     }
   }
 };
+ fetch(`http://localhost:3001/api/users/${userId}`).then((response) => response.json())
+  .then((data) => console.log(data))
+  .then((fetch))
 
 document
   .querySelector('.new-job-form')
@@ -45,3 +51,6 @@ document
 document
   .querySelector('.project-list')
   .addEventListener('click', delButtonHandler);
+
+
+  getUserData()
