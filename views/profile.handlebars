@@ -1,15 +1,16 @@
 <div class="row">
   <div class="col-auto">
-    <h2 id='name_id' data-user-id="{{user_id}}">Welcome, {{name}}!</h2>
+    <h2 id="name_id" data-user-id="{{user_id}}">Welcome, {{name}}!</h2>
   </div>
 </div>
+
 {{#if isAuth}}
 <div>
-    <h2>My Postings:</h2>
-    {{#if jobPostings.length}}
-    <div>
-        {{#each jobPostings as |job|}}
-        <div class="row mb-2">
+  <h2>My Postings:</h2>
+  {{#if jobPostings.length}}
+  <div>
+    {{#each jobPostings as |job|}}
+    <div class="row mb-2">
       <div class="col-md-8">
         <h4><a href="/job/{{job.id}}">{{job.name}}</a></h4>
       </div>
@@ -18,57 +19,54 @@
       </div>
     </div>
     {{/each}}
-    </div>
-   {{/if}} 
-
-<div class="row mt-4">
-  <div class="col-md-6">
-    <h3>Create a New Job Posting:</h3>
-
-    <form class="form new-job-form">
-      <div class="form-group">
-        <label for="job-name">job name:</label>
-        <input class="form-input" type="text" id="job-name" name="job-name" />
-      </div>
-      <div class="form-group">
-        <label for="job-location">job location</label>
-        <input class="form-input" type="number" id="job-location" name="job-location" />
-      </div>
-      <div class="form-group">
-        <label for="job-desc">description:</label>
-        <textarea class="form-input" id="job-desc" name="job-desc"></textarea>
-      </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary">Create</button>
-      </div>
-    </form>
   </div>
-  </div>
-  </div>
-<<<<<<< HEAD
   {{/if}}
-  {{else}}
-  <p>sd</p>
-    {{!-- {{name}} --}}
-    {{!-- {{#each favorites as |favorite|}}
-  <div>
-    <h3>{{favorite.name}}</h3>
-    <p>dsaf</p>
-  </div>
-  {{/each}} --}}
-=======
-  
-  {{else}}
-    <p>Hi{{name}}</p>
-    
-    {{#each favorites as |favorite|}}
-  <div>
-    <h3>{{favorite.job_id}}</h3>
-  </div>
-  {{/each}}
->>>>>>> 8c427dfca7c6a43d5287ff5fa1539ed8c4c3652d
-  
- {{/if}}
 
+  <div class="row mt-4">
+    <div class="col-md-6">
+      <h3>Create a New Job Posting:</h3>
 
-<script src="./js/profile.js"></script>
+      <form class="form new-job-form">
+        <div class="form-group">
+          <label for="job-name">job name:</label>
+          <input class="form-input" type="text" id="job-name" name="job-name" />
+        </div>
+        <div class="form-group">
+          <label for="job-location">job location</label>
+          <input class="form-input" type="number" id="job-location" name="job-location" />
+        </div>
+        <div class="form-group">
+          <label for="job-desc">description:</label>
+          <textarea class="form-input" id="job-desc" name="job-desc"></textarea>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">Create</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+{{else}}
+
+{{! Favorites display }}
+<div class="border rounded p-4">
+  <h2 class="my-4">My Favorites</h2>
+  <ul class="list-group">
+    {{#each favorites}}
+    <div class="">
+      <li class="list-group-item my-2 rounded-3">
+        <a class="text-decoration-none" href="/job/{{this.jobPosting.id}}">
+          <h4>{{this.jobPosting.job_name}}</h4>
+        </a>
+          <p><em>{{this.jobPosting.job_description}}</em></p>
+        <button id="remove-favorite" class="btn btn-danger" data-id="{{this.jobPosting.id}}">Remove</button>
+      </li>
+
+    </div>
+    {{/each}}
+  </ul>
+</div>
+{{/if}}
+
+<script src="/js/profile.js"></script>

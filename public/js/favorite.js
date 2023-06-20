@@ -31,7 +31,7 @@ async function handleFavorite(event) {
 const url = window.location.href;
 const parts = url.split('/')
 const jobId = parts[parts.length - 1]
-
+console.log(jobId)
 const userId = favoriteBtn.getAttribute("data-user-id");
 
 const favoriteIdsByJob = {};  //keeps track of favorite_id
@@ -63,11 +63,6 @@ async function removeFavorite() {
   const devUrl = `http://localhost:3001/api/favorites/${favoriteId}`
 await fetch(devUrl, {
   method: "DELETE",
-  headers: {
-    "Content-Type": "application/json",
-  },
-    body: JSON.stringify({ user_ID: userId, job_id: jobId }),
-  
 })
  
   .catch((error) => {
