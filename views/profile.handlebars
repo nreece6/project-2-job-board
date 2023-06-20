@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-auto">
-    <h2>Welcome, {{name}}!</h2>
+    <h2 id='name_id' data-user-id="{{user_id}}">Welcome, {{name}}!</h2>
   </div>
 </div>
 {{#if isAuth}}
@@ -46,14 +46,15 @@
   </div>
   </div>
   
-  {{#else}}
-  
+  {{else}}
+    <p>Hi{{name}}</p>
+    
     {{#each favorites as |favorite|}}
   <div>
-    <h3>{{favorite.name}}</h3>
+    <h3>{{favorite.job_id}}</h3>
   </div>
   {{/each}}
-  {{/else}}
+  
  {{/if}}
 
 

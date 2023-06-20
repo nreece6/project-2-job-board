@@ -154,6 +154,7 @@ router.get('/job/:id', withAuth,async (req, res) => {
 router.get('/profile', withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
+    const userId = req.session.user_id
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
       include: [{ model: JobPosting }, { model: Favorites}],
@@ -163,6 +164,7 @@ router.get('/profile', withAuth, async (req, res) => {
 
     res.render('profile', {
       ...user,
+      user_id:userId,
       logged_in: true
     });
   } catch (err) {

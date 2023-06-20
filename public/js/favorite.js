@@ -46,7 +46,7 @@ async function createFavorite() {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ user_id: userId, job_id: jobId }),
+    body: JSON.stringify({ user_ID: userId, job_id: jobId }),
   })
     .then((response) => response.json())
     .then((data) => {
@@ -66,7 +66,7 @@ await fetch(`http://localhost:3001/api/favorites`, {
   headers: {
     "Content-Type": "application/json",
   },
-    body: JSON.stringify({ user_id: userId, job_id: jobId }),
+    body: JSON.stringify({ user_ID: userId, job_id: jobId }),
   
 })
  
