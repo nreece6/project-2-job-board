@@ -1,24 +1,31 @@
-const User = require('./User')
-const JobPosting = require('./Job-Posting')
-const Favorites = require('./Favorites')
-const Applicants = require("./applicants")
+const User = require('./User');
+const JobPosting = require('./Job-Posting');
+const Favorites = require('./Favorites');
+const Applicants = require('./applicants');
 
-User.hasMany(JobPosting, {
+User.hasMany(JobPosting, {  
     foreignKey: 'user_id',
-    onDelete: 'CASCADE'
-})
+  });
+
+JobPosting.belongsTo(User, {  
+  foreignKey: 'user_id',
+});
 
 User.hasMany(Favorites, {
-    foreignKey: 'user_id',
-    onDelete: 'CASCADE',
-})
+  foreignKey: 'user_ID',
+  onDelete: 'CASCADE',
+});
 
-JobPosting.belongsTo(User, {
-    foreignKey: 'user_id'
-})
 
 Favorites.belongsTo(User, {
-    foreignKey: 'user_id'
-})
+  foreignKey: 'user_ID',
+});
 
-module.exports = { User, JobPosting, Favorites, Applicants}
+JobPosting.hasMany(Favorites,{
+    foreignKey:'job_id'
+})
+Favorites.belongsTo(JobPosting, {
+  foreignKey: 'job_id',
+});
+
+module.exports = { User, JobPosting, Favorites, Applicants };

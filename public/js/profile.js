@@ -1,3 +1,7 @@
+const nameEl = document.getElementById('name_id')
+const userId = nameEl.getAttribute("data-user-id")
+const removeFavoriteButton = document.getElementById("remove-favorite")
+console.log(userId)
 const newFormHandler = async (event) => {
   event.preventDefault();
 
@@ -38,10 +42,22 @@ const delButtonHandler = async (event) => {
   }
 };
 
-document
-  .querySelector('.new-job-form')
-  .addEventListener('submit', newFormHandler);
+removeFavoriteButton.addEventListener('click',delButtonHandler)
 
-document
-  .querySelector('.project-list')
-  .addEventListener('click', delButtonHandler);
+//  fetch(`http://localhost:3001/api/users/${userId}`).then((response) => response.json())
+//   .then((data) => {
+//     const jobName = data.favorites[0].jobPosting.job_name;
+//     console.log(jobName)})
+  
+
+// document
+//   .querySelector('.new-job-form')
+//   .addEventListener('submit', newFormHandler);
+
+// document
+//   .querySelector('.project-list')
+//   .addEventListener('click', delButtonHandler);
+
+
+  // getUserData()
+ 

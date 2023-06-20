@@ -17,7 +17,16 @@ router.get('/:id', async (req, res) => {
     try{
      const user = await User.findOne({
         where:{id:req.params.id},
-         include:[{model:Favorites},{model:JobPosting}] // including its associated favourite and jobposting for a user
+        include: [
+          {
+            model: Favorites,
+            include: [
+              {
+                model: JobPosting,
+              },
+            ],
+          },
+        ], // including its associated favourite and jobposting for a user
      })
      res.status(200).json(user)
     }catch(err){
