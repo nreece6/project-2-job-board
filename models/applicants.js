@@ -12,7 +12,6 @@ Applicants.init(
        email:{
         type:DataTypes.STRING,
         allowNull:false,
-        unique:true,
         validate:{
             isEmail: true
         }},
@@ -20,7 +19,7 @@ Applicants.init(
             type:DataTypes.INTEGER
         },
         description:{
-            type:DataTypes.INTEGER
+            type:DataTypes.STRING
 
         },
 

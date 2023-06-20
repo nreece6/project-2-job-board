@@ -5,7 +5,7 @@ router.post('/', async (req, res) => {
     try {
       const { Name, email, years_ex,description, } = req.body;
       const applicants = await Applicants.create({
-        Name: Name,
+        name: Name,
         email: email,
         years_ex: years_ex,
         description: description,
