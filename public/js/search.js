@@ -15,8 +15,11 @@ $(function() {
         });
       },
       select: function(event, ui) {
-        let jobId = ui.item.id;
-        window.location.href = "/job/" + jobId; // Redirect to the job details page
+        console.log(ui)
+        let jobId = ui.item.value;
+        window.location.href = "/job/" + jobId 
+        
+        ; // Redirect to the job details page
       }
     })
   });
