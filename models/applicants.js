@@ -16,11 +16,14 @@ Applicants.init(
             isEmail: true
         }},
         years_ex:{
-            type:DataTypes.INTEGER
+            type:DataTypes.STRING
         },
         description:{
             type:DataTypes.STRING
 
+        },
+        resume:{
+            type:DataTypes.STRING
         },
 
         id: {
