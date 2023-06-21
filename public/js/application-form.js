@@ -36,7 +36,7 @@ const description = document.querySelector("#exampleFormControlTextarea1").value
       .then((res) => res.text())
       .then(function (){
         
-    fetch("https://protected-refuge-18602-b5474f6525e3.herokuapp.com//application")
+    fetch("/application")
     .then((res) => res.json())
     .then((data) => {
     
