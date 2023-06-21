@@ -3,12 +3,13 @@ const { Favorites, User, JobPosting, Applicants } = require('../../models');
 
 router.post('/', async (req, res) => {
     try {
-      const { Name, email, years_ex,description, } = req.body;
+      const { Name, email, years_ex,description, resume } = req.body;
       const applicants = await Applicants.create({
-        Name: Name,
+        name: Name,
         email: email,
         years_ex: years_ex,
         description: description,
+        resume: resume
 
         // user_id: user_id,
         // job_id: job_id,

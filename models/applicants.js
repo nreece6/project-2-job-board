@@ -12,16 +12,18 @@ Applicants.init(
        email:{
         type:DataTypes.STRING,
         allowNull:false,
-        unique:true,
         validate:{
             isEmail: true
         }},
         years_ex:{
-            type:DataTypes.INTEGER
+            type:DataTypes.STRING
         },
         description:{
-            type:DataTypes.INTEGER
+            type:DataTypes.STRING
 
+        },
+        resume:{
+            type:DataTypes.STRING
         },
 
         id: {

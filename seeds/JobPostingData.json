@@ -5,7 +5,8 @@
     "job_description": "As a Software Engineer at Google, you will collaborate with a team of talented engineers to design and develop innovative software solutions. Responsibilities include coding, testing, debugging, and maintaining software applications. You will work on projects that impact millions of users and help shape the future of technology.",
     "job_location": "Mountain View, CA",
     "salary": 130000,
-    "remote_status": "Remote"
+    "remote_status": "Remote",
+    "user_id": 1
   },
   {
     "job_name": "Graphic Designer",
@@ -13,7 +14,8 @@
     "job_description": "Join Adobe's creative team as a Graphic Designer! In this role, you will conceptualize and design visual elements for digital and print media. From creating stunning illustrations to designing captivating user interfaces, you will contribute to the development of Adobe's industry-leading creative software and help shape the visual identity of our brand.",
     "job_location": "San Jose, CA",
     "salary": 90000,
-    "remote_status": "Not remote"
+    "remote_status": "Not remote",
+    "user_id": 2
   },
   {
     "job_name": "Sales Representative",
@@ -21,7 +23,9 @@
     "job_description": "As a Sales Representative at Microsoft, you will be responsible for promoting and selling our products and services to businesses and enterprise clients. Your primary focus will be on building and maintaining strong relationships, understanding customer needs, and providing tailored solutions that drive business growth. Join our dynamic sales team and play a key role in shaping the future of technology.",
     "job_location": "Redmond, WA",
     "salary": 80000,
-    "remote_status": "Remote"
+    "remote_status": "Remote",
+    "user_id": 3
+
   },
   {
     "job_name": "Marketing Manager",
@@ -29,7 +33,8 @@
     "job_description": "Coca-Cola is seeking a talented Marketing Manager to develop and execute marketing strategies that drive brand awareness and increase market share. Responsibilities include conducting market research, analyzing consumer trends, developing campaigns, and managing cross-functional teams. Join our passionate marketing team and make a significant impact on the Coca-Cola brand.",
     "job_location": "Atlanta, GA",
     "salary": 95000,
-    "remote_status": "Not remote"
+    "remote_status": "Not remote",
+    "user_id": 4
   },
   {
     "job_name": "Data Analyst",
