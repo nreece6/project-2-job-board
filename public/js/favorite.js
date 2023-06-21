@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
       })
       .catch((error) => {
-        // Handle any errors
+       
         console.error("Error:", error);
       });
   }
