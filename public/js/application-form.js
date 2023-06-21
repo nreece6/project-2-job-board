@@ -1,10 +1,3 @@
-// const email = document.querySelector("#exampleFormControlInput1").value
-// const Name = document.querySelector("#Name").value
-// const years_ex = document.querySelector("#exampleFormControlSelect1").value
-// const description = document.querySelector("#exampleFormControlTextarea1").value
-
-
-
 
 function uuidv4() {
     return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, (c) =>
@@ -68,3 +61,4 @@ const description = document.querySelector("#exampleFormControlTextarea1").value
       })
     
   });
+
