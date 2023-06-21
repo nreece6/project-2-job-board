@@ -1,7 +1,8 @@
 const nameEl = document.getElementById('name_id')
+const removeFavoriteBtn = document.getElementById('remove-favorite')
 const userId = nameEl.getAttribute("data-user-id")
-const removeFavoriteButton = document.getElementById("remove-favorite")
-console.log(userId)
+
+
 const newFormHandler = async (event) => {
   event.preventDefault();
 
@@ -42,22 +43,29 @@ const delButtonHandler = async (event) => {
   }
 };
 
-removeFavoriteButton.addEventListener('click',delButtonHandler)
+const deleteFavoriteHandler = async (event) => {
+  if (event.target.hasAttribute('data-favorite-id')) {
+    
+    const favoriteId = event.target.getAttribute("data-favorite-id")
+    const response = await fetch(`/api/favorites/${favoriteId}`, {
+      method: 'DELETE',
+    });
 
-//  fetch(`http://localhost:3001/api/users/${userId}`).then((response) => response.json())
-//   .then((data) => {
-//     const jobName = data.favorites[0].jobPosting.job_name;
-//     console.log(jobName)})
-  
-
-// document
-//   .querySelector('.new-job-form')
-//   .addEventListener('submit', newFormHandler);
-
-// document
-//   .querySelector('.project-list')
-//   .addEventListener('click', delButtonHandler);
+    if (response.ok) {
+      document.location.replace('/profile');
+    } else {
+      alert('Failed to delete project');
+    }
+  }
+};
 
 
-  // getUserData()
- 
+
+
+// Select all the buttons with the class "btn-danger"
+var buttons = document.querySelectorAll('.btn-danger');
+
+// Iterate over each button and add the event listener
+buttons.forEach(function(button) {
+  button.addEventListener('click', deleteFavoriteHandler);
+});
