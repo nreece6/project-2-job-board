@@ -18,14 +18,14 @@ function uuidv4() {
     // Build the form data - You can add other input values to this i.e descriptions, make sure img is appended last
     let formData = new FormData();
     formData.append("imgfile", newFile);
-    fetch("https://protected-refuge-18602-b5474f6525e3.herokuapp.com//application", {
+    fetch("/application", {
       method: "POST",
       body: formData,
     })
       .then((res) => res.text())
       .then(function (){
         
-    fetch("https://protected-refuge-18602-b5474f6525e3.herokuapp.com//application")
+    fetch("/application")
     .then((res) => res.json())
     .then((x) => console.log(x))
     // fetch("http://localhost:3001/api/applicants",{
