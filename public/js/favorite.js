@@ -38,7 +38,7 @@ let favoriteId;
 
 
   async function createFavorite() {
-    const devUrl = "http://localhost:3001/api/favorites";
+    const devUrl = "/api/favorites";
     await fetch(devUrl, {
       method: "POST",
       headers: {
@@ -59,7 +59,7 @@ let favoriteId;
   }
 
 async function removeFavorite() {
-  const devUrl = `http://localhost:3001/api/favorites/${favoriteId}`
+  const devUrl = `/api/favorites/${favoriteId}`
 await fetch(devUrl, {
   method: "DELETE",
 })
