@@ -39,7 +39,7 @@ let favoriteId;
 
 
 async function createFavorite() {
-  const devUrl = "http://localhost:3001/api/favorites";
+  const devUrl = "https://protected-refuge-18602-b5474f6525e3.herokuapp.com/favorites";
   await fetch(devUrl, {
     method: "POST",
     headers: {
@@ -60,7 +60,7 @@ async function createFavorite() {
 }
 
 async function removeFavorite() {
-  const devUrl = `http://localhost:3001/api/favorites/${favoriteId}`
+  const devUrl = `https://protected-refuge-18602-b5474f6525e3.herokuapp.com/${favoriteId}`
 await fetch(devUrl, {
   method: "DELETE",
 })
