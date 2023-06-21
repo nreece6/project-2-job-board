@@ -13,7 +13,7 @@ function generatePaginationList(totalPages) {
   previousListItem.classList.add("page-item");
   const previousLink = document.createElement("a");
   previousLink.classList.add("page-link");
-  previousLink.href = `http://localhost:3001/?page=${currentPage-1}&limit=5`;
+  previousLink.href = `https://protected-refuge-18602-b5474f6525e3.herokuapp.com//?page=${currentPage-1}&limit=5`;
   if (currentPage === 1) {
     previousLink.classList.add('disabled');
   } else {
@@ -30,7 +30,7 @@ function generatePaginationList(totalPages) {
 
     const link = document.createElement("a");
     link.classList.add("page-link");
-    link.href = `http://localhost:3001/?page=${i}&limit=5`;
+    link.href = `https://protected-refuge-18602-b5474f6525e3.herokuapp.com/?page=${i}&limit=5`;
     link.textContent = i;
 
     if (i === currentPage) {
@@ -57,7 +57,7 @@ function generatePaginationList(totalPages) {
   nextListItem.classList.add("page-item");
   const nextLink = document.createElement("a");
   nextLink.classList.add("page-link");
-  nextLink.href = `http://localhost:3001/?page=${currentPage + 1}&limit=5`;
+  nextLink.href = `/?page=${currentPage + 1}&limit=5`;
   if (currentPage === totalPages) {
     nextLink.classList.add('disabled');
   }

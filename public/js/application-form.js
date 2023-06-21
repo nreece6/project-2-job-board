@@ -29,14 +29,14 @@ const description = document.querySelector("#exampleFormControlTextarea1").value
     formData.append("pdf", newFile);
     document.getElementById("resume").href = `https://storage.googleapis.com/jobposting-board/${postid}_post.pdf`
 
-    fetch("http://localhost:3001/application", {
+    fetch("/application", {
       method: "POST",
       body: formData,
     })
       .then((res) => res.text())
       .then(function (){
         
-    fetch("http://localhost:3001/application")
+    fetch("https://protected-refuge-18602-b5474f6525e3.herokuapp.com//application")
     .then((res) => res.json())
     .then((data) => {
     
@@ -44,7 +44,7 @@ const description = document.querySelector("#exampleFormControlTextarea1").value
     } )
   
    
-    fetch("http://localhost:3001/api/applicants",{
+    fetch("/api/applicants",{
      
            method: "POST",
       body: JSON.stringify({ Name, email, years_ex, description, resume}),
