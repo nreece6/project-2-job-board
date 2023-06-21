@@ -20,7 +20,7 @@ JobPosting.init(
 
           },
           job_description:{
-            type:DataTypes.STRING,
+            type:DataTypes.TEXT,
             allowNull:true
 
           },
@@ -42,6 +42,10 @@ JobPosting.init(
           schedule:{
             type:DataTypes.STRING,
 
+          },
+          remote_status:{
+            type:DataTypes.STRING,
+            
           },
           user_id:{
             type:DataTypes.INTEGER,

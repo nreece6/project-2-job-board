@@ -1,60 +1,74 @@
-const favoriteButtons = document.querySelectorAll("#favorite-button");
+document.addEventListener("DOMContentLoaded", function () {
+  const favoriteBtn = document.getElementById("favorite-button");
+  const alertFavorite = document.getElementById("alert-favorited");
+  const alertUnFavorite = document.getElementById("alert-unfavorited");
+  favoriteBtn.addEventListener("click", () => {
+    handleFavorite();
+  });
 
-favoriteButtons.forEach((button) => {
-  button.addEventListener("click", handleFavoriteClick);
-});
-let favoriteId; // Define the favoriteId variable outside the if statement
-function handleFavoriteClick(event) {
-  const button = event.target;
-  const parts = window.location.href.split("/");
-  const jobId = parts[parts.length - 1];
-  console.log(jobId);
-
-//Send fetch request to API
-  const isFavorite = button.classList.contains("active"); // Check if the button is currently marked as a favorite
- 
-
-  if (!isFavorite) {
-   
-    button.style.backgroundColor = "red";
-    fetch(`http://localhost:3001/api/favorites`, {
-      method: "POST",
-      body: JSON.stringify({ job_id: jobId, user_id: "2" }), // Send the job ID to the API'
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        favoriteId = data.favorite_id; // Set the favoriteId variable
-        console.log(data)
-        
-        button.classList.toggle("active"); // Toggle the active class to reflect the updated favorite state
-        
-      })
-      .catch((error) => {
-       
-        // console.error("Error:", error);
-      });
-  } else {
-    fetch(`http://localhost:3001/api/favorites/${favoriteId}`, {
-      method: "DELETE",
-      body: JSON.stringify({ job_id: jobId, user_id: "2" }), // Send the job ID to the API'
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-       
-        button.classList.toggle("active"); // Toggle the active class to reflect the updated favorite state
-        
-      })
-      .catch((error) => {
-        
-        // console.error("Error:", error);
-      });
+async function handleFavorite(event) {
+    const isFavorited = favoriteBtn.classList.contains("btn-danger");
     
-    button.style.backgroundColor = "gray";
+    if (isFavorited) {
+      favoriteBtn.classList.remove("btn-danger");
+      favoriteBtn.classList.add("btn-outline-danger");
+      await removeFavorite();
+      alertUnFavorite.classList.remove("d-none");
+      setTimeout(() => {
+        alertUnFavorite.classList.add("d-none");
+      }, 2000);
+    } else {
+      favoriteBtn.classList.add("btn-danger");
+      await createFavorite();
+      alertFavorite.classList.remove("d-none");
+      setTimeout(() => {
+        alertFavorite.classList.add("d-none");
+      }, 2000);
+    }
+    
   }
+//to get the job id from the url .../job/id
+const url = window.location.href;
+const parts = url.split('/')
+const jobId = parts[parts.length - 1]
+console.log(jobId)
+const userId = favoriteBtn.getAttribute("data-user-id");
+
+const favoriteIdsByJob = {};  //keeps track of favorite_id
+let favoriteId;
+
+
+async function createFavorite() {
+  const devUrl = "http://localhost:3001/api/favorites";
+  await fetch(devUrl, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ user_id: userId, job_id: jobId }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      favoriteId = data.favorite_id;
+        // Store the favoriteId in the data structure
+        favoriteIdsByJob[jobId] = favoriteId;
+    })
+    .catch((error) => {
+      // Handle any errors
+      console.error("Error:", error);
+    });
 }
+
+async function removeFavorite() {
+  const devUrl = `http://localhost:3001/api/favorites/${favoriteId}`
+await fetch(devUrl, {
+  method: "DELETE",
+})
+ 
+  .catch((error) => {
+    // Handle any errors
+    console.error("Error:", error);
+  });
+}
+
+});

@@ -1,18 +1,34 @@
+<div class="ui-widget center mb-10">
+  <label for="tags">Search Jobs by Name: </label>
+  <input id="tags">
+</div>
+
 <!-- Loop over each object in the projects array -->
-{{#each jobs as |job| }}
-<div class="row mb-4 project">
-    <a href="/job/{{job.id}}">
+{{#each paginatedJobs as |job| }}
+<div class="row mb-4 p-4 project border rounded-4 shadow-sm">
+    <a class="text-decoration-none" href="/job/{{job.id}}">
   <div class="col-md-5">
     <h2>     
       {{job.job_name}}
     </h2>
     <p>Job Listed by {{job.user.name}}</p>
   </div>
-  <div class="col-md-7">
+  
+  </a>
+  <div class="col-md-12">
     <p>
       {{job.job_description}}
     </p>
   </div>
-  </a>
 </div>
 {{/each}}
+
+{{!-- pagination --}}
+<nav  aria-label="Page navigation example" id="pagination-nav" data-totalPages={{totalPages}} data-currentPage={{currentPage}}>
+   <ul class="pagination justify-content-center ">
+      {{!-- dyncamically pagenations are generated from /js.home.js --}}
+  </ul>
+</nav>
+{{!-- <p>total pages: {{totalPages}} current page:{{currentPage}} </p> --}}
+<script src="/js/search.js"></script>
+<script src="/js/home.js"></script>

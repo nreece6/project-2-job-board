@@ -1,59 +1,16 @@
-<<<<<<< Updated upstream
+
 const { Model, DataTypes } = require('sequelize');
-
+const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
-=======
-const { Model, DataTypes } = require("sequelize");
-const bcrypt = require("bcrypt");
-const sequelize = require("../config/connection");
->>>>>>> Stashed changes
 
-class User extends Model {}
+class User extends Model {
+  checkPassword(loginPw) {
+    return bcrypt.compareSync(loginPw, this.password);
+  }
+}
 
 User.init(
-<<<<<<< Updated upstream
-    {
-        id:{
-            type:DataTypes.INTEGER,
-            allowNull: false,
-            primaryKey:true,
-            autoIncrement:true
-          },
-          name:{
-            type:DataTypes.STRING,
-            allowNull:false
-          },
-          email:{
-            type:DataTypes.STRING,
-            allowNull:false,
-            unique:true,
-            validate:{
-                isEmail: true
-            }
-          },
-          password: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-              len: 8,
-            },
-          },
-          isAuth:{
-            
-                type: DataTypes.BOOLEAN
-              },
-          
-    },
-    {
-        sequelize,
-        timestamps: false,
-        freezeTableName: true,
-        underscored: true,
-        modelName: 'user',
-      }
-)
-module.exports = User
-=======
+
   {
     id: {
       type: DataTypes.INTEGER,
@@ -82,9 +39,8 @@ module.exports = User
     },
     phonenumber: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
       validate: {
-        notNull: true,
         is: /^\+?\d{10,}$/, // regular expression for a valid phone number
       },
     },
@@ -126,4 +82,4 @@ module.exports = User
   }
 );
 module.exports = User;
->>>>>>> Stashed changes
+

@@ -1,47 +1,69 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Job Board</title>
-  <link rel="stylesheet" href="/css/jass.css">
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Job Hive</title>
+   <link rel="icon" href="/img/LogoMakr-0FMDpN.png" type="image/png">
+  
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  
+  <link rel="icon" href="/img/LogoMakr-0FMDpN.png" type="image/png" />
+  <link rel="stylesheet" href="/css/jass.css" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">  
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" />
+  
+
+  <!-- Bootstrap JavaScript (optional if you need features like dropdowns, modals, etc.) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+
+  {{! Icons }}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
 </head>
 
 <body>
   <div class="flex-column justify-space-around">
-    <header class="display-flex justify-space-between align-center p-2">
+    <header class="display-flex justify-space-between align-center p-2 bg-secondary">
+
       <h1>
-        <span role="img" aria-label="money">💸</span>
-        <a href="/">Job Openings</a>
+
+        <a href="/" class="ml-5"><img src="/img/LogoMakr-76k40u.png" alt="logo" class="img-fluid" /></a>
+
       </h1>
       <nav>
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
-        <a href="/profile">profile</a> |
-        <button class="no-button" id="logout">logout</button>
+
+        <button type="button" class="btn btn-link"><a href="/profile" class="mr-2 ml-2 text-white text-decoration-none">profile</a></button>
+        
+        <button class="no-button mr-5 ml-2 text-white border rounded p-2" id="logout">Log Out</button>
+        
         {{else}}
-        <a href="/login">login</a>
+        <a href="/login" class="mr-5 text-white">login</a>
         {{/if}}
       </nav>
     </header>
     <main class="container container-fluid mt-5">
       <!-- Render the sub layout -->
-      {{{ body }}}
+      {{{body}}}
     </main>
     <footer>
-      
+
     </footer>
   </div>
 
   <!-- Render script for logged in users only -->
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
-  
   {{/if}}
-  <script src="/js/favorite.js"></script>
+  
+  <script src="/js/search.js"></script>
 </body>
 
 </html>
