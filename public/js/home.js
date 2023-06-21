@@ -57,7 +57,7 @@ function generatePaginationList(totalPages) {
   nextListItem.classList.add("page-item");
   const nextLink = document.createElement("a");
   nextLink.classList.add("page-link");
-  nextLink.href = `https://protected-refuge-18602-b5474f6525e3.herokuapp.com/?page=${currentPage + 1}&limit=5`;
+  nextLink.href = `/?page=${currentPage + 1}&limit=5`;
   if (currentPage === totalPages) {
     nextLink.classList.add('disabled');
   }
