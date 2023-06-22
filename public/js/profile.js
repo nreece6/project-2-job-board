@@ -66,8 +66,7 @@ const deleteFavoriteHandler = async (event) => {
   }
 };
 
-document.querySelector('.new-job-form')
-.addEventListener('submit', newFormHandler);
+
 
 
 // Select all the buttons with the class "btn-danger"
@@ -77,3 +76,7 @@ var buttons = document.querySelectorAll('.btn-danger');
 buttons.forEach(function(button) {
   button.addEventListener('click', deleteFavoriteHandler);
 });
+
+document
+.querySelector('.new-job-form')
+.addEventListener('submit', newFormHandler);
