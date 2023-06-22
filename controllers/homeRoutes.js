@@ -26,6 +26,13 @@ const { Op } = require('sequelize')
 router.get('/', async (req, res) => {
   try {
     // Get all projects and JOIN with user data
+    const userId = req.session.user_id;
+    const userData = await User.findByPk(req.session.user_id, {
+        attributes: { exclude: ['password'] },
+        
+      });
+    const user = userData.get({ plain: true });
+
     const jobsData = await JobPosting.findAll({
       include: [
         {
@@ -49,6 +56,7 @@ router.get('/', async (req, res) => {
       
     //Pass serialiazed and pagenated data and session flag into template
     res.render('homepage', { 
+      ...user,
       paginatedJobs,
       logged_in: req.session.logged_in,
       user_id:req.session.user_id,
@@ -63,6 +71,12 @@ router.get('/', async (req, res) => {
 router.get('/job/:id', withAuth,async (req, res) => {
     try {
       const userId = req.session.user_id;
+      const userData = await User.findByPk(req.session.user_id, {
+          attributes: { exclude: ['password'] },
+          
+        });
+      const user = userData.get({ plain: true });
+
       const jobId = req.params.id;
       const isJobFavorited = await Favorites.findOne({
         where:{
@@ -83,6 +97,7 @@ router.get('/job/:id', withAuth,async (req, res) => {
       const job = jobData.get({ plain: true });
      
       res.render('job', {
+        ...user,
         ...job,
         logged_in: req.session.logged_in,
         user_id:userId,
@@ -145,14 +160,15 @@ router.get('/job/:id', withAuth,async (req, res) => {
     }
   });
 
-  router.get('/login', (req, res) => {
-    res.render('login'); // Render the login view
-  });
+  // router.get('/login', (req, res) => {
+  //   res.render('login'); // Render the login view
+  // });
   
 
 // Use withAuth middleware to prevent access to route
 router.get('/profile', withAuth, async (req, res) => {
   try {
+    
     // Find the logged in user based on the session ID
     const userId = req.session.user_id
     const userData = await User.findByPk(req.session.user_id, {
@@ -174,7 +190,7 @@ router.get('/profile', withAuth, async (req, res) => {
     res.render('profile', {
       ...user,
       user_id:userId,
-      logged_in: true
+      logged_in: req.session.logged_in
     });
   } catch (err) {
     res.status(500).json(err);

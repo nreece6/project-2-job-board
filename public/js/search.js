@@ -4,7 +4,7 @@ $(function() {
     source: function(request, response) {
       // Fetch search results from the server
       $.ajax({
-        url: "/search",
+        url: "/home/search",
         dataType: "json",
         data: {
           term: request.term
@@ -17,7 +17,7 @@ $(function() {
     select: function(event, ui) {
       console.log(ui)
       let jobId = ui.item.value;
-      window.location.href = "/job/" + jobId 
+      window.location.href = "/home/job/" + jobId 
       
       ; // Redirect to the job details page
     }

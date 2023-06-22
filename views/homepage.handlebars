@@ -3,13 +3,12 @@
     <input id="tags" type="text" class="form-control col-5 mx-4 text-center font-italic" placeholder="Search for jobs" aria-label="Search" aria-describedby="search-button" />
     <button class="btn btn-primary" type="button" id="search-button">Search</button>
   </div>
-
 </div>
 
 <!-- Loop over each object in the projects array -->
 {{#each paginatedJobs as |job|}}
 <div class="row mb-4 p-4 project border rounded-4 shadow-sm">
-  <a class="text-decoration-none" href="/job/{{job.id}}">
+  <a class="text-decoration-none" href="home/job/{{job.id}}">
     <div class="col-md-5">
       <h2>
         {{job.job_name}}
