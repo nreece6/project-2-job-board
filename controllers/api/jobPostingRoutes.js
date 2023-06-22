@@ -39,14 +39,18 @@ router.get('/', async (req, res) => {
 
 
  router.post('/', async (req, res) => {
-    const { job_name, job_description, job_location, user_id, company_name } = req.body;
+    const { job_name, job_description, job_location, salary,  Company_name, user_id } = req.body;
+   console.log(salary)
+    const parSalary = parseFloat(salary)
+   console.log(parSalary)
     try{
         const job = await JobPosting.create({
             job_name:job_name,
             job_description:job_description,
             job_location:job_location,
-            Company_name:company_name,
-            user_id:user_id
+            Company_name:Company_name,
+            user_id:user_id,
+            salary:parSalary
         })
         res.status(200).json(job)
        }catch(err){
