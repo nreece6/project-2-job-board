@@ -29,14 +29,14 @@ const description = document.querySelector("#exampleFormControlTextarea1").value
     formData.append("pdf", newFile);
     document.getElementById("resume").href = `https://storage.googleapis.com/jobposting-board/${postid}_post.pdf`
 
-    fetch("/application", {
+    fetch("/home/application", {
       method: "POST",
       body: formData,
     })
       .then((res) => res.text())
       .then(function (){
         
-    fetch("/application")
+    fetch("/home/application")
     .then((res) => res.json())
     .then((data) => {
     

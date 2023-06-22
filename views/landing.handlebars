@@ -1,0 +1,27 @@
+<div class="d-flex row landing-body justify-content-center align-items-center ">
+  <div class="text-center text-white border p-4 rounded-4">
+    
+      <img src="/img/logo.png" alt="logo" class="m-0 p-0 mx-auto mb-0" />
+   
+    
+    <h1 class="landing-font">Job Hive</h1>
+    <!-- Your content here -->
+    <p class="mb-5 font-italic lead ">Connecting talented individuals like you with a wide range of exciting job opportunities.</p>
+    <button type="button" class=" btn btn-success btn-lg mx-3 shadow">
+      {{#if logged_in}}
+      <a href="/home" class="text-decoration-none text-white">View jobs</a>
+      {{else}}
+      <a href="/home/login" class="text-decoration-none text-white">View jobs</a>
+      {{/if}}
+      
+    </button>
+    {{#unless logged_in}}
+    <button type="button" class="btn btn-secondary btn-lg mx-3 shadow">
+      <a href="/home/login" class="text-decoration-none text-white">Sign up</a>
+    </button>
+    {{/unless}}
+  </div>
+</div>
+<div class="bg-secondary opacity-75" style="height:120vh; position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: -1;">{{!
+  background color }}</div>
+<script src="/js/landing.js"></script>
