@@ -141,7 +141,7 @@ router.get('/job/:id', withAuth,async (req, res) => {
     }
   });
 
-  router.post("/application", multer.single("imgfile"), (req, res) => {
+  router.post("/application", multer.single("pdf"), (req, res) => {
     console.log("Made it /upload");
     try {
       if (req.file) {
@@ -154,7 +154,7 @@ router.get('/job/:id', withAuth,async (req, res) => {
           console.log("Success");
         });
         blobStream.end(req.file.buffer);
-      } else throw "error with img";
+      } else throw "error with pdf";
     } catch (error) {
       res.status(500).send(error);
     }
