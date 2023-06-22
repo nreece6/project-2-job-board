@@ -22,7 +22,11 @@ const newFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/home/profile');
+      setTimeout(() => {
+        document.location.replace('/home/profile')
+      }, 3000)
+      
+     
     } else {
       alert('Failed to create project');
     }
@@ -38,6 +42,7 @@ const delButtonHandler = async (event) => {
     });
 
     if (response.ok) {
+    
       document.location.replace('/home/profile');
     } else {
       alert('Failed to delete project');
