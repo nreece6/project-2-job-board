@@ -6,21 +6,7 @@
 
 {{#if isAuth}}
 <div>
-  <h2>My Postings:</h2>
-  {{#if jobPostings.length}}
-  <div>
-    {{#each jobPostings as |job|}}
-    <div class="row mb-2">
-      <div class="col-md-8">
-        <h4><a href="/job/{{job.id}}">{{job.name}}</a></h4>
-      </div>
-      <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{job.id}}">DELETE</button>
-      </div>
-    </div>
-    {{/each}}
-  </div>
-  {{/if}}
+
 
   <div class="row mt-4">
     <div class="col-md-6">
@@ -48,12 +34,34 @@
         </div>
         </div>
         <div class="form-group">
-          <button type="submit" class="btn btn-primary" id="create">Create</button>
+          {{!-- <button type="submit" class="btn btn-primary" id="create">Create</button> --}}
+           <button  type="submit button"  class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" id="submitBtn">Create</button>
         </div>
       </form>
     </div>
   </div>
 </div>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="display-flex justify-space-between align-center p-2 bg-secondary">  <a href="/" class="ml-5"><img src="/img/LogoMakr-76k40u.png" alt="logo" class="img-fluid" /></a>      
+        <h5 class="modal-title" id="exampleModalLabel"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       Thank you for Creating A Job Posting!
+      </div>
+      <div class="modal-footer">
+       
+     
+      
+      </div>
+    </div>
+  </div>
+</div>
+
 
 {{else}}
 
