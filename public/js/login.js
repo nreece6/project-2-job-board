@@ -36,7 +36,7 @@ const signupFormHandler = async (event) => {
 
     if (response.ok) {
       
-      document.location.replace("/home");
+      document.location.replace("/");
       // // Set the user_id in localStorage
       // const { user } = response
       // localStorage.setItem("user", JSON.stringify(user));
