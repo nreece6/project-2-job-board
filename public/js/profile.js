@@ -6,14 +6,16 @@ const userId = nameEl.getAttribute("data-user-id")
 const newFormHandler = async (event) => {
   event.preventDefault();
 
-  const name = document.querySelector('#job-name').value.trim();
-  const needed_funding = document.querySelector('#job-location').value.trim();
-  const description = document.querySelector('#job-desc').value.trim();
-
-  if (name && needed_funding && description) {
+  const job_name = document.querySelector('#job-name').value.trim();
+  const job_location = document.querySelector('#job-location').value.trim();
+  const job_description = document.querySelector('#job-desc').value.trim();
+  const salary = document.querySelector('#salary').value
+  const Company_name = document.querySelector('#CompanyName').value
+  const user_id = 2
+  // if (job_name && job_location && job_description && salary && Company_name && user_id ) {
     const response = await fetch(`/api/jobPostings`, {
       method: 'POST',
-      body: JSON.stringify({ name, needed_funding, description }),
+      body: JSON.stringify({ job_name, job_location, job_description, Company_name, user_id, salary}),
       headers: {
         'Content-Type': 'application/json',
       },
@@ -25,7 +27,7 @@ const newFormHandler = async (event) => {
       alert('Failed to create project');
     }
   }
-};
+;
 
 const delButtonHandler = async (event) => {
   if (event.target.hasAttribute('data-id')) {
@@ -59,7 +61,8 @@ const deleteFavoriteHandler = async (event) => {
   }
 };
 
-
+document.querySelector('.new-job-form')
+.addEventListener('submit', newFormHandler);
 
 
 // Select all the buttons with the class "btn-danger"
